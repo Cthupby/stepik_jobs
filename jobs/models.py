@@ -10,7 +10,7 @@ class Company(models.Model):
     location = models.CharField(max_length=50)
     description = models.TextField()
     employee_count = models.IntegerField()
-    owner = models.OneToOneField(User, on_delete=models.CASCADE)
+    # owner = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class Speciality(models.Model):
