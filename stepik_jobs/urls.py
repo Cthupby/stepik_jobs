@@ -20,6 +20,10 @@ from jobs.views import main_view, vacancies_view, speciality_view, \
     company_view, vacancy_view
 from jobs.views import custom_handler404, custom_handler500
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_view, name='main_url'),
@@ -32,3 +36,8 @@ urlpatterns = [
 
 handler404 = custom_handler404
 handler500 = custom_handler500
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

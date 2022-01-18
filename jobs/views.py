@@ -2,6 +2,7 @@ from django.db.models import Count
 from django.shortcuts import render
 from django.http import Http404, HttpResponseNotFound, HttpResponseServerError
 
+
 from .models import Vacancy, Company, Speciality
 
 
@@ -11,7 +12,7 @@ def main_view(request):
 
     context = {
         'specialities': specialities,
-        'companies': companies
+        'companies': companies,
     }
     return render(request, "jobs/index.html", context=context)
 
@@ -48,7 +49,8 @@ def company_view(request, company_id):
     context = {
         'vacancies': vacancies,
         'title': company.name,
-        'count': company.vacancies.count
+        'count': company.vacancies.count,
+        'logo': company.logo
     }
     return render(request, "jobs/company.html", context=context)
 

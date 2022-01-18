@@ -12,13 +12,15 @@ class Command(BaseCommand):
         for company in companies:
             Company.objects.create(
                     name=company['title'],
+                    logo=company['logo'],
                     location=company['location'],
                     description=company['description'],
-                    employee_count=company['employee_count']
-                )
+                    employee_count=company['employee_count'],
+            )
 
         for speciality in specialties:
             Speciality.objects.create(
+                    picture='specty_' + speciality['code'] + '.png',
                     code=speciality['code'],
                     title=speciality['title'],
                 )
